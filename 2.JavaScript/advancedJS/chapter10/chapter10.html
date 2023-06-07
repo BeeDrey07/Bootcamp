@@ -1,0 +1,902 @@
+<!-- ***** PRACTICE EXERCISE 10.1*****-->
+
+<!-- Take the following steps:
+1. Create and open the above sample web page, or visit your favorite website, 
+and open the document body in the console with console.dir(document). 
+2. In the body.children property, select some of the child elements. View how 
+they match the page content.
+3. Navigate to and output the next nodes or elements into the console. -->
+
+<!-- <!doctype html>
+<html>
+
+<head>
+    <title>Sample Webpage</title>
+</head>
+
+<body>
+    <div class="main">
+        <div>
+            <ul>
+                <li>One</li>
+                <li>Two</li>
+                <li>Three</li>
+            </ul>
+        </div>
+        <div>blue</div>
+        <div>green</div>
+        <div>yellow</div>
+        <div>Purple</div>
+    </div>
+    <script>
+    //console.dir(document.body);
+
+    // Type the following in the console to traverse the document object:
+
+    //To get to the first DIV (<div class="main">):
+    // document.body.children[0];
+
+    // To get to the One:
+    //document.body.children[0].children[0].children[0].children[0];
+
+    // To get to Two:
+    //document.body.children[0].children[0].children[0].children[0].nextElementSibling;
+
+    // To get to Three:
+    // document.body.children[0].children[0].children[0].children[1].nextElementSibling;
+
+    // To get to One:
+    // document.body.children[0].children[0].children[0].children[1].previousElementSibling;
+
+    // To get to blue:
+    //document.body.children[0].children[1];
+
+    // To get to yellow:
+    //document.body.children[0].children[1].nextElementSibling.nextElementSibling;
+
+    // To get to green:
+    //document.body.children[0].nextElementSibling.nextElementSibling.previousElementSibling;
+
+    //To get to purple:
+    //document.body.children[4];
+
+    //To get to parent element (<div class="main">):
+    // document.body.children[0].children[4].parentElement
+
+    </script>
+</body>
+
+</html> -->
+
+<!-- ***** PRACTICE EXERCISE 10.2 ***** -->
+
+<!-- 
+Try experimenting with getting elements by their IDs:
+1. Create an HTML element and assign an ID in the element attribute.
+2. Select the page element using its ID.
+3. Output the selected page element into the console. -->
+
+<!-- <!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 10.2</title>
+</head>
+<body>
+    <h1 id="heading"> Hello You! </h1>
+    <p id="paragraph"> This is an example pargraph. My name is Bianca Dreyer. I am 21 years old.</p>
+</body>
+<script>
+    // outputting an element by it's id to the console.
+    console.log(document.getElementById("paragraph"));
+</script>
+</html> -->
+
+<!-- ***** PRACTICE EXERCISE 10.3 ***** -->
+
+<!-- Use JavaScript to select page elements via their tag name:
+1. Start by creating a simple HTML file.
+2. Create three HTML elements using the same tag. 
+3. Add some content within each element so you can distinguish between them
+4. Add a script element to your HTML file, and within it select the page 
+elements by tag name and store them in a variable as an array
+5. Using the index value, select the middle element and output it into the 
+console. -->
+
+<!-- <!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 10.3</title>
+</head>
+<body>
+    <p>This is paragraph 1.</p>
+    <p>This is paragraph 2.</p>
+    <p>This is paragrpah 3.</p>
+</body>
+<script>
+    // selecting page elements and storing it inside a variable as an array.
+    let elements = document.getElementsByTagName("p");
+
+    // outputting the middle element to the console.
+    console.log(elements[1]);
+</script>
+</html> -->
+
+<!-- ***** PRACTICE EXERCISE 10.4 ***** -->
+
+<!-- 
+Select all matching page elements using the class name of the element.
+1. Create a simple HTML file to work on.
+2. Add three HTML elements adding the same class to each. You can use 
+different tags as long as the same element class is included. Add some 
+content within each element so you can distinguish between them.
+3. Add a script element to your file, and within it select the page elements by 
+class name. Assign the resulting HTMLCollection values to a variable.
+4. You can use an index value to select the individual HTMLCollection items, 
+just as you would for array items. Starting with an index of 0, select one 
+of the page elements with the class name and output the element into the 
+console.
+ -->
+
+<!-- <!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 10.4</title>
+</head>
+<body>
+    <h1 class="headings">The First Heading</h1>
+    <p class="paragraphs">The first paragraph</p>
+    <h2 class="headings">The Second Heading</h2>
+    <p class="paragraphs">The second parapgraph.</p>
+    <h3 class="headings">The Third Heading.</h3>
+    <p class="paragraphs">The third paragraph.</p>
+</body>
+<script>
+    let myHeadings=document.getElementsByClassName("headings");
+    console.log(myHeadings);
+    console.log(myHeadings[2]);
+</script> 
+</html> -->
+
+<!-- ***** PRACTICE EXERCISE 10.5 ***** -->
+
+<!-- Use querySelector() to enable single element selection:
+1. Create another simple HTML file.
+2. Create four HTML elements adding the same class to each. They can be 
+different tag names as long as they have the class within the element 
+attribute.
+3. Add some content within each element so you can distinguish between them.
+4. Within a script element, use querySelector() to select the first occurrence 
+of the elements with that class and store it in a variable. If there is more than 
+one matching result in querySelector(), it will return the first one.
+5. Output the element into the console. -->
+
+<!-- <!doctype HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 10.5</title>
+</head>
+
+<body>
+    <div class="animals">A document listing animals.</div>
+    <h1 class="animals">Animals</h1>
+    <parapgraph class="animals">Let's list some animals.</parapgraph>
+    <ol class="animals">
+        <li>Giraffe</li>
+        <li>Rhino</li>
+        <li>Elephant</li>
+        <li>Cheetah</li>
+    </ol>
+</body>
+<script>
+    // select the first element with the class name of animals,save it in a variable and output it to the console.
+    let myAnimals = document.querySelector(".animals");
+    console.log(myAnimals);
+</script>
+
+</html> -->
+
+<!-- ***** PRACTICE EXERCISE 10.6 ***** -->
+
+<!-- 1. Create an HTML file and add four HTML elements, adding the same class to 
+each one.
+2. Add some content within each element so you can distinguish between them.
+3. Within a script element, use QuerySelectorAll() to select all the matching 
+occurrences of the elements with that class and store them in a variable.
+4. Output all the elements into the console, first as an array and then looping 
+through them to output them one by one. -->
+
+<!-- <!doctype HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 10.6</title>
+</head>
+
+<body>
+    <div class="animals">A document listing animals.</div>
+    <h1 class="animals">Animals</h1>
+    <parapgraph class="animals">Let's list some animals.</parapgraph>
+    <ol class="animals">
+        <li>Giraffe</li>
+        <li>Rhino</li>
+        <li>Elephant</li>
+        <li>Cheetah</li>
+    </ol>
+</body>
+<script>
+    // selcect all elements with the class name of animals,save it in a variable and output it to the console.
+    let myAnimals = document.querySelectorAll(".animals");
+    console.log(myAnimals);
+    myAnimals.forEach((element) => {
+        console.log(element);
+    });
+</script>
+
+</html> -->
+
+<!-- ***** PRACTICE EXERCISE 10.7 ***** -->
+
+<!-- Create a button within a basic HTML document and add the onclick attribute. The 
+example will demonstrate how you can reference object data with this:
+1. Create a function to handle a click within your JavaScript code. You can 
+name the function message.
+2. Add this to the onclick function parameters sending the current element 
+object data using this.
+3. Within the message function, use console.dir() to output in the console the 
+element object data that was sent to the function using onclick and this.
+4. Add a second button to the page also invoking the same function on the click. -->
+
+<!-- <!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 10.7</title>
+</head>
+
+<body>
+    <div>
+        <button onclick="message(this)">First Button</button>
+        <br>
+        <button onclick="message(this)">Second Button</button>
+    </div>
+    <script>
+        // creating a function to output the text content of the above elements
+     function message(element) {
+            console.dir(element.textContent);
+        } 
+    </script>
+</body>
+
+</html> -->
+
+<!-- ***** PRACTICE EXERCISE 10.8 ***** -->
+
+<!-- Creating custom attributes: using an array of names, the following code will update 
+the element's HTML, adding HTML code using the data from the array. The items 
+within the array will be output to the page as HTML code. The user will be able to 
+click the page elements and they will display the page element attribute values.
+
+Take the following steps:
+1. Create an array of names. You can add as many as you want—all the string 
+values will be output onto the page within a table.
+2. Select the page elements as JavaScript objects.
+3. Add a function and also invoke that function within the JavaScript code. The 
+function can be called build() as it will be building the page content. Within 
+the build function, you will be setting up the HTML in a table. 
+4. Create a table named html, and within the tags, loop through the contents of 
+the array and output the results into the html table. 
+5. Add a class called box to one of the cells that has the index value of the item 
+from the array, adding the same class to the elements for each additional 
+row. 
+6. As you create the HTML for the elements within the tr element, create an 
+attribute called data-row in the main row element that includes the index 
+value of the item from the array. In addition, add another attribute within the 
+element called data-name that will contain the text output.
+7. Within the attribute of the same tr element, also add onclick to invoke a 
+function named getData passing the current element object as this into the 
+function parameter.
+8. Add the table of HTML code to the page.
+9. Create a function named getData that will be invoked once the HTML tr
+elements are clicked. Once the tr element is clicked, use getAttribute to get 
+the attribute values of the row value and the contents of the text output and 
+store them in different variables.
+10. Using the values in the attributes stored in the preceding step, output the 
+values into the message element on the page.
+11. Once the user clicks the element on the page, it will display the details 
+coming from the element attributes within the element with the id of 
+message. -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Complete JavaScript Course</title>
+  </head>
+
+  <body>
+    <div id="message"></div>
+    <div id="output"></div>
+    <script>
+      const message = document.querySelector("#message");
+      const names = [
+        "Bianca",
+        "Amber",
+        "Tazlyn",
+        "Robyn",
+        "Jade",
+        "Jennifer",
+        "Roxanne",
+        "Lucy",
+        "Hannah",
+        "Alex",
+      ];
+
+      build();
+
+      function build() {
+        let html = "<h1> My Friends Table </h1><table>";
+        names.forEach((item, index) => {
+          html += `<tr class="box" data-row="${
+            index + 1
+          }" data-name="${item}" onclick="getData(this)">
+                        <td> ${item} <td>`;
+          html += `<td> ${index + 1} </td></tr>`;
+        });
+        html += "</table>";
+        document.getElementById("output").innerHTML = html;
+
+        function getData(el) {
+          let temp = el.getAttribute("data-row");
+          let tempName = el.getAttribute("data-name");
+          message.innerHTML = `${tempName} is in row #${temp}`;
+        }
+      }
+    </script>
+  </body>
+</html> -->
+
+<!-- ***** PRACTICE EXERCISE 10.9 ***** -->
+
+<!-- 1. Select all the page buttons into a JavaScript object.
+
+2. Loop through each button, and create a function within the button scope 
+called output.
+
+3. Within the output() function, add a console.log() method that outputs 
+the current object's textContent. You can reference the current parent object 
+using the this keyword.
+
+4. As you loop through the buttons attach an event listener that when clicked 
+invokes the output() function. -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>JS Tester</title>
+  </head>
+  <body>
+    <div>
+      <button>Button 1</button>
+      <button>Button 2</button>
+      <button>Button 3</button>
+    </div>
+    <script>
+        // Selecting all buttons into a JavaScript object.
+         const buttons = document.querySelectorAll("button");
+         // Looping through each button.
+         buttons.forEach ((btn) => {
+            // Outputs the current objects textContent.
+         function output() {
+          console.log(this.textContent);
+         }
+         // An event listener that invokes the output function when clicked.
+         btn.addEventListener("click", output);
+      });
+    </script>
+  </body>
+</html> -->
+
+<!-- ***** PRACTICE EXERCISE 10.10 ***** -->
+
+<!-- 1. Select the page elements as JavaScript objects.
+
+2. Add an onclick event listener to the add button. Once the button is clicked, 
+it should add the contents of the input field to the end of the list. You can call 
+the function addOne().
+
+3. Within addOne(), create li elements to append to the main list on the page. 
+Add the input value to the list item text content.
+
+4. Within the addOne() function, get the current value of the addItem input field. 
+Use that value to create a textNode with that value, adding it to the list item. 
+Append the textNode to the list item. -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Complete JavaScript Course</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="message">Complete JavaScript Course</div>
+    <div>
+      <input type="text" id="addItem" />
+      <input type="button" id="addNew" value="Add to List" />
+    </div>
+    <div id="output">
+      <h1>Shopping List</h1>
+      <ol id="sList"></ol>
+    </div>
+    <script>
+        // Selecting element with ID "addNew", and using onclick to invoke addOne() function.
+        document.getElementById("addNew").onclick = function() {
+            addOne();
+        }
+        // Function to add list items to list.
+        function addOne() {
+            // Get current value of input field.
+           var add = document.getElementById("addItem").value;
+           // Creating a new li element.
+           var li = document.createElement("li");
+           // Creating a textNode with above value.
+           li.appendChild(document.createTextNode(add));
+           // Appending list item to shopping list.
+           document.getElementById("sList").appendChild(li);
+        }
+    </script>
+  </body>
+</html> -->
+
+<!-- ***** CHAPTER PROJECTS ***** -->
+
+<!-- ***** Collapsible Accordion Component ***** -->
+
+<!-- Take the following steps:
+
+1. Using querySelectorAll(), select all the elements with a class of title.
+
+2. Using querySelectorAll(), select all the elements with a class of myText. 
+This should be the same number of elements as the title elements.
+
+3. Iterate through all the title elements and add event listeners that, once 
+clicked, will select the next element siblings.
+
+4. Select the element on the click action and toggle the classlist of the 
+element with the class of active. This will allow the user to click the element 
+and hide and show the below content.
+
+5. Add a function that will be invoked each time the elements are clicked that 
+will remove the class of active from all the elements. This will hide all the 
+elements with myText. -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>JS Tester</title>
+    <style>
+      .active {
+        display: block !important;
+      }
+      .myText {
+        display: none;
+      }
+      .title {
+        font-size: 1.5em;
+        background-color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">Title #1</div>
+      <div class="myText">Just some text #1</div>
+      <div class="title">Title #2</div>
+      <div class="myText">Just some text #2</div>
+      <div class="title">Title #3</div>
+      <div class="myText">Just some text #3</div>
+    </div>
+    <script>
+        // Selecting all elements with class of title.
+      const titles = document.querySelectorAll(".title");
+      // Selecting all elements with class of myText.
+      const text = document.querySelectorAll(".myText");
+      // Iterating through each title element.
+      titles.forEach((elem) => {
+        // Adding an event listener that will:
+        elem.addEventListener("click", (e) => {
+            // log the elements sibling to the console when clicked.
+          console.log(elem.nextElementSibling);
+          // invoke the remover function.
+          remover();
+          // toggle classList with class of "active". (Hide and show different content).
+          elem.nextElementSibling.classList.toggle("active");
+        });
+      });
+      // Function to remove class of active from all text elements.
+      function remover() {
+        text.forEach((el) => {
+          el.classList.remove("active");
+        });
+      }
+    </script>
+  </body>
+</html> -->
+
+<!-- ***** Interactive Voting System ***** -->
+
+<!-- Take the following steps:
+
+1. Create an array of people's names called myArray. This will be the default 
+original list of names.
+
+2. Select the page elements as JavaScript objects so they can easily be selected 
+within the code.
+
+3. Add event listener to the Add Friend button. Once clicked, this will get the 
+value from the input field and pass the values to a function that will add 
+the friend list to the page. Additionally, add the new friend's name into the 
+people's names array you created. Get the current value in the input field and 
+push that value into the array so the array matches the values on the page.
+
+4. Run a function to build the content on the page, using the forEach() loop get 
+all the items within the array and add them to the page. Include 0 as a default 
+for the vote count, as all individuals should start on zero votes.
+
+5. Create a main function that will create the page elements, starting with the 
+parent table row, tr. Then create three table cell, td, elements. Add content to 
+the table cells, including the vote count in the last column, the person name 
+in the middle, and the index plus 1 in the first column.
+
+6. Append the table cells to the table row and append the table row to the 
+output area on the page.
+
+7. Add an event listener that will increase the vote counter for that row when 
+the user clicks.
+
+8. Get the text content from the last column in the row. It should be the value 
+of the current counter. Increment the counter by one and make sure the 
+datatype is a number so you can add to it.
+
+9. Update the last column with the new click counter. -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Complete JavaScript Course</title>
+  </head>
+  <body>
+    <div id="message">Complete JavaScript Course</div>
+    <div>
+      <input type="text" id="addFriend" />
+      <input type="button" id="addNew" value="Add Friend" />
+    </div>
+    <table id="output"></table>
+    <script>
+        // Creating an array with names.
+      const myArray = ["Bianca", "Robyn", "Tazlyn", "Joe", "Nick"];
+      // Selecting all document elements.
+      const message = document.getElementById("message");
+      const addFrnd = document.getElementById("addFriend");
+      const addNew = document.getElementById("addNew");
+      const output = document.getElementById("output");
+      // Invoking build function when window is loaded.
+      window.onload = build();
+      // When addNew button is clicked, function invoked.
+      addNew.onclick = function () {
+        // Gets value from input field.
+        const newFrnd = addFrnd.value;
+        // Invokes adder function.
+        adder(newFrnd, myArray.length, 0);
+        // Pushes new friend to array.
+        myArray.push(newFrnd);
+      };
+      function build() {
+        // Builds content of the page.
+        myArray.forEach((item, index) => {
+          adder(item, index, 0);
+        });
+      }
+      // Creates page elements.
+      function adder(name, index, counter) {
+        const tr = document.createElement("tr");
+        // Create td element for index, name and counter.
+        const td1 = document.createElement("td");
+        // Add box to classList.
+        td1.classList.add("box");
+        // Add one to index and that becomes the textContent for td1.
+        td1.textContent = index + 1;
+        const td2 = document.createElement("td");
+        // Make name the textContent for td2.
+        td2.textContent = name;
+        const td3 = document.createElement("td");
+        // Make counter the textContent for td3.
+        td3.textContent = counter;
+        // Append all td to tr.
+        tr.append(td1);
+        tr.append(td2);
+        tr.append(td3);
+        // Adding an event listener to increase the vote counter when a user clicks it.
+        tr.onclick = function () {
+            // Logs lastChild element.
+          console.log(tr.lastChild);
+          // Creates a variable called val which stores the textContent of the last child element.
+          // Also converts it to a number.
+          let val = Number(tr.lastChild.textContent);
+          // Increments val with 1 each time
+          val++;
+          // val updated with incremented val.
+          tr.lastChild.textContent = val;
+        };
+        // Append tr to output area on the page.
+        output.appendChild(tr);
+      }
+    </script>
+  </body>
+</html> -->
+
+<!-- ***** Hangman Game ***** -->
+
+<!-- 
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hangman Game</title>
+    <style>
+      .gameArea {
+        text-align: center;
+        font-size: 2em;
+      }
+      .box,
+      .boxD {
+        display: inline-block;
+        padding: 5px;
+      }
+      .boxE {
+        display: inline-block;
+        width: 40px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gameArea">
+      <div class="score"></div>
+      <div class="puzzle"></div>
+      <div class="letters"></div>
+      <button>Start Game</button>
+    </div>
+    <script>
+      // Main game object:
+      // cur -  Contains the current word solution.
+      // solution - Contains the array of letters of the solution.
+      // puzz - Contains an array that holds the page elements, corresponds with the index of each letter from the solution.
+      // total - Counts the number of letters left to solve. Ends the game when needed.
+      const game = { cur: "", solution: "", puzz: [], total: 0 };
+      // Setting up an array that contains words and phrases I want to use in a game
+      const myWords = ["I love food", "Hotwings", "Pizza", "Sushi", "Burger"];
+      // Selecting all document elements into variables.
+      const score = document.querySelector(".score");
+      const puzzle = document.querySelector(".puzzle");
+      const letters = document.querySelector(".letters");
+      const btn = document.querySelector("button");
+      // Adding an event listener to the start game button.
+      // Launches startGame function.
+      btn.addEventListener("click", startGame);
+      function startGame() {
+        // Check if wordsArray has any words left.
+        if (myWords.length > 0) {
+          // If there are words left, hide the button.
+          btn.style.display = "none";
+          // Clear game objects.
+          game.puzz = [];
+          // Set total to zero.
+          game.total = 0;
+          // Assign a current word which is equal to the word we shift from the words array.
+          game.cur = myWords.shift();
+          // Convert current word string to array of all characters in the word and assign to solution.
+          game.solution = game.cur.split("");
+          // Invoke builder function to build game board.
+          builder();
+        } else {
+          // If words.length is 0, display the following message.
+          score.textContent = "No More Words.";
+        }
+      }
+      // A function to generate page elements.
+      // elType - get the type of element.
+      // parentEle - the parent that the new element will be appended to.
+      // output - the output content for the new element.
+      // cla - class to add to the new element.
+      function createElements(elType, parentEle, output, cla) {
+        // Create the element and assign it to a temp variable.
+        const temp = document.createElement(elType);
+        // Add the class.
+        temp.classList.add("boxE");
+        // Append the new element to the parent element.
+        parentEle.append(temp);
+        // Setting the textContent.
+        temp.textContent = output;
+        // Returning the element.
+        return temp;
+      }
+      // Function to check if game is over and update the score.
+      function updateScore() {
+        // Shows the number of guesses left.
+        score.textContent = `Total Letters Left : ${game.total}`;
+        if (game.total <= 0) {
+          // If no letters left, console log game over.
+          console.log("game over");
+          // set text content to game over.
+          score.textContent = "Game Over";
+          // Show button so that the player has an option for the next phrase or word.
+          btn.style.display = "block";
+        }
+      }
+      // Function to build the game board.
+      function builder() {
+        // Clear innerHTML from letters and puzzle page elements.
+        letters.innerHTML = "";
+        puzzle.innerHTML = "";
+        // Iterate through the game solution array.
+        game.solution.forEach((lett) => {
+          // generating page elements.
+          // set an element type of div.
+          // append it to the main puzzle page element.
+          // set an output value of -.
+          // set a class of boxE.
+          let div = createElements("div", puzzle, "-", "boxE");
+          // check if value is blank.
+          if (lett == " ") {
+            // If it is change border to white.
+            div.style.borderColor = "white";
+            // Clear textContent.
+            div.textContent = " ";
+          } else {
+            // If it isn't, increment the total so that it reflects number of letters that must be guessed.
+            game.total++;
+          }
+          // Push new game element into game puzzle array.
+          game.puzz.push(div);
+          // Invoke the updateScore function. (Output current number of letters left.)
+          updateScore();
+        });
+        // Creating a loop to represent the 26 letters of the alphabet.
+        for (let i = 0; i < 26; i++) {
+          // String methof fromCharCode() will return a character from the numeric representation.
+          // Store it in a temp variable.
+          let temp = String.fromCharCode(65 + i);
+          // Store create elements in a div variable so that we can use it to create an element for each letter.
+          let div = createElements("div", letters, temp, "box");
+          // Function that is run each time a letter is clicked.
+          let checker = function (e) {
+            div.style.backgroundColor = "#ddd";
+            // Remove class of box.
+            div.classList.remove("box");
+            // Add class of boxD.
+            div.classList.add("boxD");
+            // Remove eventListener that invokes checker.
+            div.removeEventListener("click", checker);
+            // Invoke function checkLetter that passes clicked letter into the argument.
+            checkLetter(temp);
+          };
+          // Adding an event listener to run checker function.
+          div.addEventListener("click", checker);
+        }
+      }
+      // Function to loop through all solution letters.
+      function checkLetter(letter) {
+        console.log(letter);
+        game.solution.forEach((ele, index) => {
+          // Adding a condition to check if clicked letter is equal to solution letter.
+          // Convert to uppercase to match letters properly.
+          if (ele.toUpperCase() == letter) {
+            // Update the matching letters using the game puzzle array and the index from the solution letter.
+            game.puzz[index].textContent = letter;
+            // Decrement the total letters left to be solved.
+            game.total--;
+            // Invoke updateScore function to check if the game is over and update score.
+            updateScore();
+          }
+        });
+      }
+    </script>
+  </body>
+</html> -->
+
+<!-- ***** SELF-CHECK QUIZ ***** -->
+
+<!-- 
+  1. What output will the following code produce?
+ <div id="output">Complete JavaScript Course </div>
+ <script>
+ var output = document.getElementById('output');
+ output.innerText = "Hello <br> World";
+ </script> 
+ -->
+
+<!-- 
+  The code will output "Hello <br> World"
+- CORRECT
+-->
+
+<!-- 2. What output will be seen within the browser page?
+  <div id="output">Complete JavaScript Course </div>
+  <script>
+  document.getElementById('output').innerHTML = "Hello <br> World";
+  </script> -->
+
+<!-- 
+ The code will output "Hello World" ( with world on a new line.)
+- CORRECT
+-->
+
+<!-- 3. What will be seen in the input field from the following code?
+<div id="output">Hello World</div>
+<input type="text" id="val" value="JavaScript" />
+<script>
+  document.getElementById("val").value =
+    document.getElementById("output").innerHTML;
+</script> -->
+
+<!-- 
+  JavaScript
+  - INCORRECT. You'll see Hello World in both the div and input field.
+ -->
+
+<!-- 4. In the following code, what is output into the console when the element with 
+the word three gets clicked? What is the output when the element with the 
+word one gets clicked?
+<div class="holder">
+ <div onclick="output('three')">Three
+ <div onclick="output('two')">Two
+ <div onclick="output('one')">One</div>
+ </div>
+ </div>
+ </div>
+<script>
+ function
+ output(val) {
+ console.log(val);
+ }
+</script> -->
+
+<!-- 
+  When Three gets clicked. three is output to the console. - CORRECT
+  When One gets clicked. one is output to the console. - INCORRECT. Outputs all three outputs (one two three).
+ -->
+
+<!-- 5. What line of code needs to be added to remove the event listener when the 
+ button is clicked in the following code?
+ <div class="btn">Click Me</div>
+ <script>
+  const btn = document.querySelector(".btn");
+  btn.addEventListener("click", myFun);
+  function myFun() {
+  console.log("clicked");
+  }
+ </script> -->
+
+<!-- 
+  btn.removeEventListener("click", myFun)
+  - CORRECT
+ -->

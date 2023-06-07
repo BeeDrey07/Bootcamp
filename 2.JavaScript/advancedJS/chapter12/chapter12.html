@@ -1,0 +1,733 @@
+<!-- ***** PRACTICE EXERCISE 12.1 ***** -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Complete JavaScript Course</title>
+  </head>
+  <body>
+    <div id="output">Complete JavaScript Course</div>
+    Search for:
+    <input id="sText" type="text" />
+    <br />
+    Replace with:
+    <input id="rText" type="text" />
+    <br />
+    <button>Replace</button>
+    <script>
+      // Select 3 page elements.
+      const output = document.getElementById("output");
+      const findValue = document.getElementById("sText");
+      const replaceValue = document.getElementById("rText");
+      // Invoke lookup.
+      document.querySelector("button").addEventListener("click", lookUp);
+      // Function to find and replace text in output element.
+      function lookUp() {
+        // assign output elements text content.
+        const s = output.textContent;
+        // assign value of replacemnt variable.
+        const rt = replaceValue.value;
+        // creating new regex with value of first input field.
+        const re = new RegExp(findValue.value, "gi");
+        // A condition to only execute code if match is found.
+        if (s.match(re)) {
+          // use replace to set new value.
+          let newValue = s.replace(re, rt);
+          // Output new value.
+          output.textContent = newValue;
+        }
+      }
+    </script>
+  </body>
+</html> -->
+
+<!-- ***** PRACTICE EXERCISE 12.2 ***** -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Course</title>
+  </head>
+  <body>
+    <div class="output"></div>
+    <input type="text" placeholder="Enter Email" />
+    <button>Check</button>
+    <script>
+      // Select input, output and button elements.
+      const output = document.querySelector(".output");
+      const emailVal = document.querySelector("input");
+      const btn = document.querySelector("button");
+
+      const emailExp = /([A-Za-z0-9._-]+@[A-Za-z0-9._-]+\.[A-Za-z0-9]+)\w+/;
+      // Invoke function once clicked to get current value in input field.
+      btn.addEventListener("click", (e) => {
+        const val = emailVal.value;
+        // Add a test with string value from input field and email format.
+        const result = emailExp.test(val);
+        // blank response value to populate output div element.
+        let response = "";
+        // If not correct format:
+        if (!result) {
+          // Display invalid email
+          response = "Invalid Email";
+          // Change output colour to red.
+          output.style.color = "red";
+          // If correct format:
+        } else {
+          // Display valid email.
+          response = "Valid Email";
+          // Change output color to green.
+          output.style.color = "green";
+        }
+        // Clear email.value
+        emailVal.value = "";
+        // Display response in output div.
+        output.textContent = response;
+      });
+    </script>
+  </body>
+</html> -->
+
+<!-- ***** PRACTICE EXERCISE 12.3 ***** -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 12.3</title>
+  </head>
+  <body>
+    <script>
+      function showNames() {
+        let lastOne = "";
+        // loop to iterate through arguments.
+        for (let i = 0; i < arguments.length; i++) {
+          // Set lastOne to current value of arguments using index of i to return argument value.
+          lastOne = arguments[i];
+        }
+        // return value.
+        return lastOne;
+      }
+      console.log(showNames("Bianca", "Dreyer", "Jane", "Mathew"));
+    </script>
+  </body>
+</html> -->
+
+<!-- ***** PRACTICE EXERCISE 12.4 ***** -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 12.4</title>
+  </head>
+  <body>
+    <script>
+      let val = 5;
+      val += adder();
+      val += adder();
+      val += adder();
+      console.log(val);
+      function adder() {
+        let counter = val;
+        for (let i = 0; i < val; i++) {
+          counter++;
+        }
+        return counter;
+      }
+      // debug code by:
+      // adding breakpoints where you want to check your code.
+      // run code.
+      // go through step by step and watch variables for errors.
+      // final value should be 135.
+    </script>
+  </body>
+</html> -->
+
+<!-- ***** PRACTICE EXERCISE 12.5 ***** -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 12.5</title>
+  </head>
+  <body>
+    <script>
+      function test(val) {
+        // checks whether val is a number.
+        try {
+          if (isNaN(val)) {
+            // if not throw an error of not a number.
+            throw "Not a number";
+          } else {
+            // if it is a number, log got number.
+            console.log("Got number");
+          }
+          // use catch to catch any error values and output them to the console.
+        } catch (e) {
+          console.error(e);
+          // Log done.
+        } finally {
+          console.log("Done " + val);
+        }
+      }
+      test("a");
+      test(100);
+    </script>
+  </body>
+</html> -->
+
+<!-- ***** PRACTICE EXERICISE 12.6 -->
+
+<!-- <!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 12.6</title>
+  </head>
+  <body>
+    <script>
+      // output document cookie.
+      console.log(document.cookie);
+
+      // console log read cookie functions.
+      console.log(rCookie("test1"));
+      console.log(rCookie("test"));
+      // create 2 cookies.
+      cCookie("test1", "new Cookie", 30);
+      dCookie("test2");
+      // create a function that takes parameters of cookie name, cookie value and  no. days to set cookie.
+      function cCookie(cName, value, days) {
+        // check if days is valid
+        if (days) {
+          // get current date
+          const d = new Date();
+          // ser time to expire in milliseconds by multiplying by milliseconds.
+          d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+          // change date object to UCT string until it expires.
+          let e = "; expires=" + d.toUTCString();
+          // set document cookie to cookie name, add expiry details and specify path.
+          document.cookie = cName + "=" + value + e + "; path=/";
+        }
+      }
+      // create a function to read cookie value.
+      function rCookie(cName) {
+        let cookieValue = false;
+        // create an array of cookies split by ;
+        let arr = document.cookie.split("; ");
+        // loop through all cookies.
+        arr.forEach((str) => {
+          // split with = sign;
+          const cookie = str.split("=");
+          // check if cookie name = to cookie name requested in function parameters.
+          if (cookie[0] == cName) {
+            // assign value of second item in index. (value of cookie with selected name)
+            cookieValue = cookie[1];
+          }
+        });
+        // return value.
+        return cookieValue;
+      }
+      // function to delete a cookie.
+      function dCookie(cName) {
+        // create cookie with negative one date and send it to this function to be deleted.
+        cCookie(cName, "", -1);
+      }
+    </script>
+  </body>
+</html> -->
+
+<!-- ***** PRACTICE EXERCISE 12.7 ***** -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript</title>
+    <style>
+      .ready {
+        background-color: #ddd;
+        color: red;
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <input placeholder="New Item" value="test item" maxlength="30" />
+      <button>Add</button>
+    </div>
+    <ul class="output"></ul>
+    <script>
+      // Select all page elements.
+      const userTask = document.querySelector(".main input");
+      const addBtn = document.querySelector(".main button");
+      const output = document.querySelector(".output");
+      // create task array with value of local stoarage and use JSON to parse it.
+      // otherwise set to empty array.
+      const tasks = JSON.parse(localStorage.getItem("tasklist")) || [];
+      // invoke createListItem function.
+      addBtn.addEventListener("click", createListItem);
+      if (tasks.length > 0) {
+        // loop through each task item.
+        tasks.forEach((task) => {
+          // invoke generate item function.
+          genItem(task.val, task.checked);
+        });
+      }
+      // save to loacal storage
+      function saveTasks() {
+        localStorage.setItem("tasklist", JSON.stringify(tasks));
+      }
+      // store and ensure visual list is the same as the local storage list.
+      function buildTasks() {
+        // clear current tasks list array.
+        tasks.length = 0;
+        // select all li.
+        const curList = output.querySelectorAll("li");
+        // loop through each.
+        curList.forEach((el) => {
+            // get text content
+          const tempTask = {
+            val: el.textContent,
+            checked: false,
+          };
+          // check if it contains class of ready
+          if (el.classList.contains("ready")) {
+            tempTask.checked = true;
+          }
+          // add to array
+          tasks.push(tempTask);
+        });
+        // save so that even if page refreshes, data stays the same.
+        saveTasks();
+      }
+      function genItem(val, complete) {
+        // create a list item.
+        const li = document.createElement("li");
+        // create a text node.
+        const temp = document.createTextNode(val);
+        // append text node to list item.
+        li.appendChild(temp);
+        // append li to output element.
+        output.append(li);
+        // clear value.
+        userTask.value = "";
+        if (complete) {
+          // if marked with boolean value of true, add ready class.
+          li.classList.add("ready");
+        }
+        li.addEventListener("click", (e) => {
+          // toggle ready classes.
+          li.classList.toggle("ready");
+          // invoke build function
+          buildTasks();
+        });
+        // return value.
+        return val;
+      }
+      // function to create list item.
+      function createListItem() {
+        const val = userTask.value;
+        if (val.length > 0) {
+          const myObj = {
+            val: genItem(val, false),
+            checked: false,
+          };
+          // push object to tasks array.
+          tasks.push(myObj);
+          // save to local storage.
+          saveTasks();
+        }
+      }
+    </script>
+  </body>
+</html> -->
+
+<!-- ***** PRACTICE EXERCISE 12.8 ***** -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 12.8</title>
+  </head>
+  <body>
+    <script>
+      // Creating a JS object that contains JSON formatted data.
+      let myList = [
+        {
+          name: "Learn JavaScript",
+          status: true,
+        },
+        {
+          name: "Try JSON",
+          status: false,
+        },
+      ];
+      reloader();
+      function reloader() {
+        // loop through each JS JSON object and output result to console.
+        myList.forEach((el) => {
+          console.log(`${el.name} = ${el.status}`);
+        });
+      }
+    </script>
+  </body>
+</html> -->
+
+<!-- ***** PRACTICE EXERCISE 12.9 ***** -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 12.9</title>
+  </head>
+  <body>
+    <script>
+        // creat JSON object.
+      let myList = [
+        {
+          name: "Learn JavaScript",
+          status: true,
+        },
+        {
+          name: "Try JSON",
+          status: false,
+        },
+      ];
+      // convert to strings.
+      const newStr = JSON.stringify(myList);
+      // convert back to objects.
+      const newObj = JSON.parse(newStr);
+      // loop through each and output results to console.
+      newObj.forEach((el) => {
+        console.log(el);
+      });
+    </script>
+  </body>
+</html> -->
+
+<!-- ***** CHAPTER PROJECTS ***** -->
+
+<!-- ***** EMAIL EXTRACTOR ***** -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Complete JavaScript Course</title>
+  </head>
+  <body>
+    <textarea name="txtarea" rows="2" cols="50"></textarea>
+    <button>Get Emails</button>
+    <textarea name="txtarea2" rows="2" cols="50"></textarea>
+    <script>
+      // Select both text areas and buttons.
+      const firstArea = document.querySelector("textarea[name='txtarea']");
+      const secArea = document.querySelector("textarea[name='txtarea2']");
+      // add event listener to invoke lookup function once clicked.
+      document.querySelector("button").addEventListener("click", lookUp);
+      // function that gets content of firstArea and filters it to only accept emails.
+      function lookUp() {
+        // get content of first input field.
+        const rawTxt = firstArea.value;
+        // using match return array of email address matched from first textArea
+        const eData = rawTxt.match(
+          /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi
+        );
+        // remove duplicates by creating second array to only hold unique values.
+        const holder = [];
+        // loop through each array
+        for (let x = 0; x < eData.length; x++) {
+          // check if it's in holder array, if not add it.
+          if (holder.indexOf(eData[x]) == -1) {
+            holder.push(eData[x]);
+          }
+        }
+        // join together results of emails found within content, output it to second text area.
+        secArea.value = holder.join(",");
+      }
+    </script>
+  </body>
+</html> -->
+
+<!-- ***** FORM VALIDATOR ***** -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Project: Form Validator</title>
+    <style>
+      .hide {
+        display: none;
+      }
+
+      .error {
+        color: red;
+        font-size: 0.8em;
+        font-family: sans-serif;
+        font-style: italic;
+      }
+
+      input {
+        border-color: #ddd;
+        width: 400px;
+        display: block;
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form name="myform">
+      Email :
+      <span class="error hide">Invalid Email</span>
+      <input type="text" name="email" />
+      <br />
+      Password :
+      <span class="error hide">Invalid Password</span>
+      <input type="password" name="password" />
+      <br />
+      User Name :
+      <span class="error hide">Invalid Username</span>
+      <input type="text" name="userName" />
+      <br />
+      <input type="submit" value="Sign Up" />
+    </form>
+    <script>
+      // Select all the page elements
+      const form = document.querySelector("form");
+      const email = document.querySelector('input[name="email"]');
+      const password = document.querySelector('input[name="password"]');
+      const userName = document.querySelector('input[name="userName"]');
+      const button = document.querySelector('input[type="submit"]');
+      const errorElements = document.querySelectorAll(".error");
+      const formData = {};
+
+      // add an event listener to prevent default form action.
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        let msg = "";
+        let emailText = email.value;
+        let error = false;
+        let regMatch = emailText.match(
+          /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/g
+        );
+        const inputs = document.querySelectorAll("input");
+
+        inputs.forEach((input) =>
+          input.previousElementSibling.classList.add("hide")
+        );
+        // if doesnt match format
+        if (!regMatch) {
+          // change error to true
+          error = true;
+          // invoke error resonse function.
+          errorResponse(email, "Invalid Email");
+        }
+        // check that password contains letters and numbers through 3 and 8.
+        regMatch = password.value.match(/[a-zA-Z0-9]{3,8}/g);
+        // if doesn't match then show the following error.
+        if (!regMatch) {
+          error = true;
+          errorResponse(
+            password,
+            "Password must be alphanumeric and 3 to 8 characters."
+          );
+        }
+        // check that user matches following format.
+        regMatch = userName.value.match(/[a-zA-Z0-9]/g);
+        if (!regMatch) {
+          error = true;
+          errorResponse(userName, "Please enter a alphanumeric username.");
+        }
+
+        //  adding an object to track form data creation
+        inputs.forEach((input) => {
+          // sets property name to be the same as the input name and value same as the input value.
+          if (input.getAttribute("type") !== "submit") {
+            const name = input.getAttribute("name");
+            const value = input.value;
+            formData[name] = value;
+          }
+        });
+        console.dir(formData);
+
+        // check if error present, if not then submit the form.
+        if (!error) {
+          alert("Form successfully submitted.");
+          form.submit();
+        }
+      });
+
+      //loop through each element that has a class error and add class of hide.
+      errorElements.forEach((el) =>
+        el.addEventListener("click", (e) => el.classList.add("hide"))
+      );
+
+      // function to respond to errors.
+      function errorResponse(element, errorMsg) {
+        const nextEl = element.previousElementSibling;
+        // removes hide class.
+        nextEl.classList.remove("hide");
+        // adds class of error.
+        nextEl.classList.add("error");
+        // log to console.
+        console.log(nextEl);
+        // apply focus to that element.
+        nextEl.focus();
+        //alert an error message.
+        alert(errorMsg);
+      }
+    </script>
+  </body>
+</html> -->
+
+<!-- ***** SIMPLE MATH QUIZ ***** -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Complete JavaScript Course</title>
+  </head>
+
+  <body>
+    <span class="val1"></span><span>+</span> <span class="val2"></span> =
+    <span> <input type="text" name="answer" /></span>
+    <button>Check</button>
+    <div class="output"></div>
+    <script>
+      // wrap code in a function called app.
+      const app = (function () {
+        // Create a blank object called game.
+        const game = {};
+        // Select page elements and store them in variables.
+        const val1 = document.querySelector(".val1");
+        const val2 = document.querySelector(".val2");
+        const output = document.querySelector(".output");
+        const answer = document.querySelector("input");
+        //function for initalization.
+        function init() {
+          document
+            // Selects button element.
+            .querySelector("button")
+            // initializes checker function when button is clicked.
+            .addEventListener("click", checker);
+          // Invokes the loadQuestion function.
+          loadQuestion();
+        }
+        // Function to generate random values from max and min arguments.
+        function ranValue(min, max) {
+          return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+        // Function that loads questions.
+        function loadQuestion() {
+          // Generate two random values and add them to the game object.
+          game.val1 = ranValue(1, 100);
+          game.val2 = ranValue(1, 100);
+          // Calculate result of both values added together and add them to the game object.
+          game.answer = game.val1 + game.val2;
+          // Assign and updat textContent. (Required for calculation question)
+          val1.textContent = game.val1;
+          val2.textContent = game.val2;
+        }
+        //
+        function checker() {
+          // Use ternary operator toset color to green for correct and red for incorrect.
+          let bg = answer.value == game.answer ? "green" : "red";
+          // Create a page element to ouput all the questions and keep track of the results.
+          // Append new element to the HTML.
+          output.innerHTML += `<div style="color:${bg}">${game.val1} + ${game.val2} = ${game.answer} (${answer.value})</div>`;
+          // Clear the input field.
+          answer.value = "";
+          // Load the next question.
+          loadQuestion();
+        }
+        return {
+          // if init, return init.
+          init: init,
+        };
+      })();
+      // Add DomContentLoaded that initializes app.init once page loads.
+      document.addEventListener("DOMContentLoaded", app.init);
+    </script>
+  </body>
+</html> -->
+
+<!-- ***** SELF-CHECK QUIZ ***** -->
+
+<!-- 
+  1. What will the following regex expression return from the following words?
+Expression / ([a-e])\w+/g
+"Hope you enjoy JavaScript" 
+-->
+
+<!-- The range is from a-e, case sensitive, a global search and will return the rest fo the word, therefore it will return 
+"enjoy JavaScript". -->
+
+<!-- 2. Are cookies part of the document object? -->
+
+<!-- Yes they are. -->
+
+<!-- 
+  3. What will the following code do to a JavaScript cookie?
+const mydate = new Date();
+mydate.setTime(mydate.getTime() - 1);
+document.cookie = "username=; expires=" + mydate.toGMTString();  
+-->
+
+<!-- It will clear cookies from the site. -->
+
+<!--
+   4. What is the output in the console from the following code?
+const a = "hello world";
+(function () {
+ const a = "JavaScript";
+})();
+console.log(a);
+-->
+
+<!-- hello world -->
+
+<!-- 
+5. What is the output in the console from the following code?
+<script>
+"use strict";
+myFun();
+console.log(a);
+function myFun() {
+a = "Hello World";
+}
+</script> 
+-->
+
+<!-- a is not defined -->
+
+<!-- 
+6. What is the output of the following code?
+console.log("a");
+setTimeout(() => {
+console.log("b");
+}, 0);
+console.log("c");
+-->
+
+<!-- 
+a
+b
+c
+-->

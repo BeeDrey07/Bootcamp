@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+
+<body>
+    <script>
+        let q = window.location.search;
+        let params = new URLSearchParams(q);
+        let firstName = params.get("first");
+        let lastName = params.get("last");
+        let age = params.get("age");
+
+        alert( "Hello " + " " + firstName + " "  + lastName + " "  + age);
+    </script>
+</body>
+
+</html>
+
