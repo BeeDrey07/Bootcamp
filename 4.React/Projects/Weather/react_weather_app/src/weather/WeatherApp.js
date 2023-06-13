@@ -1,5 +1,7 @@
 import { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
+import axios from 'axios';
+
 function WeatherApp() {
   const[cityName, setCityName] = useState("");
   const [weatherData, setWeatherData] = useState({})
@@ -7,10 +9,9 @@ function WeatherApp() {
      setCityName(e.target.value);
   }
     const fetchWeatherAPI = async() =>{
-      const APIurl = `https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={a361c599d1af9bbfc3d6a704b6865041}`;
-      const resp = await fetch(APIurl);
-      const respJson = await resp.json();
-      setWeatherData(respJson);
+      const APIurl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=a361c599d1af9bbfc3d6a704b6865041&units=metric`
+      const resp = await axios.get(APIurl);
+      setWeatherData(resp.data);
       
        
     }
