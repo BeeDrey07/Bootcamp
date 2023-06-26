@@ -425,8 +425,8 @@
 <!-- ***** CHAPTER PROJECTS ***** -->
 
 <!-- ***** EMAIL EXTRACTOR ***** -->
-
-<!-- <!DOCTYPE html>
+<!-- 
+<!DOCTYPE html>
 <html>
   <head>
     <title>Complete JavaScript Course</title>
@@ -467,7 +467,7 @@
 
 <!-- ***** FORM VALIDATOR ***** -->
 
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Project: Form Validator</title>
@@ -525,7 +525,7 @@
         let emailText = email.value;
         let error = false;
         let regMatch = emailText.match(
-          /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/g
+          /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi
         );
         const inputs = document.querySelectorAll("input");
 
@@ -553,7 +553,7 @@
         regMatch = userName.value.match(/[a-zA-Z0-9]/g);
         if (!regMatch) {
           error = true;
-          errorResponse(userName, "Please enter a alphanumeric username.");
+          errorResponse(userName, "Please enter an alphanumeric username.");
         }
 
         //  adding an object to track form data creation
@@ -595,7 +595,7 @@
       }
     </script>
   </body>
-</html> -->
+</html>
 
 <!-- ***** SIMPLE MATH QUIZ ***** -->
 
