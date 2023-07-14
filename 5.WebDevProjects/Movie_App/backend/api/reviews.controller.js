@@ -28,28 +28,25 @@ export default class ReviewsController {
     try {
       const reviewId = req.body.review_id;
       const review = req.body.review;
-      const userId = req.body.user_id;
-
       const date = new Date();
 
       const ReviewResponse = await ReviewsDAO.updateReview(
         reviewId,
-        userId,
+        req.body.user_id,
         review,
         date
       );
-
       var { error } = ReviewResponse;
       if (error) {
-        res.status.json({ error });
+        res.status(500).json({ error });
       }
 
-      if (ReviewResponse.modifiedCount === 9) {
+      if (ReviewResponse.modifiedCount === 0) {
         throw new Error(
           "Unable to update review. User may not be original poster"
         );
       }
-      res.json({ status: "success" });
+      res.json({ status: "Success" });
     } catch (e) {
       res.status(500).json({ error: e.message });
     }
@@ -60,8 +57,7 @@ export default class ReviewsController {
       const reviewId = req.body.review_id;
       const userId = req.body.user_id;
       const ReviewResponse = await ReviewsDAO.deleteReview(reviewId, userId);
-
-      res.json({ status: "success" });
+      res.json({ status: "Success" });
     } catch (e) {
       res.status(500).json({ error: e.message });
     }
